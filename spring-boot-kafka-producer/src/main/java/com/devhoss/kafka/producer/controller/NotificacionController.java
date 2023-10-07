@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class NotificacionController {
@@ -20,12 +18,12 @@ public class NotificacionController {
 
     // private final KafkaTemplate<String, String> customKafkaTemplate;
 
-   // @Value("${spring.kafka.topic.notification}")
-    //private String topicNotification;
+   @Value("${spring.kafka.topic.notification}")
+   private String topicNotification;
 
     @GetMapping("push/notification/{id}")
-    public ResponseEntity<Object> pushNotification(@PathVariable Integer id) {
-        customKafkaTemplate.send("topic-name-1",
+    public ResponseEntity<Object> pushNotificationId(@PathVariable Integer id) {
+        customKafkaTemplate.send(topicNotification,
                 new NotificationRequest(id,
                         "Hossmell",
                         "Welcome to Hossvel")
@@ -34,5 +32,11 @@ public class NotificacionController {
         return ResponseEntity.ok("Successfully");
     }
 
+    @PostMapping("push/notification")
+    public ResponseEntity<Object> pushNotification(@RequestBody NotificationRequest request) {
+        customKafkaTemplate.send(topicNotification, request);
+
+        return ResponseEntity.ok("Successfully");
+    }
 
 }

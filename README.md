@@ -34,6 +34,9 @@ buscar dataDir=/tmp/zookeeper reemplazar con la ruta de windows
 .\bin\windows\kafka-console-producer.bat --broker-list {host}:9092 --topic {topic-name}
 
 
+## prueba PRODUCER
+POST - http://localhost:8080/push/notification
+GET - http://localhost:8080/push/notification/8
 
 ##### reference 
 https://www.youtube.com/watch?v=UbbyW5Z1lv8
