@@ -22,7 +22,7 @@ public class KafkaTopicConfig {
         configurations.put(TopicConfig.SEGMENT_BYTES_CONFIG, "1073741824"); // Tamanio maximo del segmento - defecto 1073741824 bytes - 1GB
         configurations.put(TopicConfig.MAX_MESSAGE_BYTES_CONFIG, "1000012"); // Tamanio maximo de cada mensaje - defecto 1000000 - 1 MB
 
-        NewTopic newTopic = TopicBuilder.name("demo-kafka-topic")
+        NewTopic newTopic = TopicBuilder.name("topic-name-1")
                 .partitions(1) // Numero de particiones
                 .replicas(1) // Numero de replicas
                 .configs(configurations)
