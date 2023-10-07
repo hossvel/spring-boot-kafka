@@ -4,7 +4,7 @@
 ## KAFKA
  buscar dentro de la ruta /config/server.properties
 log.dirs=/tmp/kafka-logs   reemplazar con la ruta de windows
-## ZOOKIPER
+## Zookeeper
 /config/zookeeper.properties
 buscar dataDir=/tmp/zookeeper reemplazar con la ruta de windows
 
