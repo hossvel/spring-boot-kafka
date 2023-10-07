@@ -38,5 +38,8 @@ buscar dataDir=/tmp/zookeeper reemplazar con la ruta de windows
 POST - http://localhost:8080/push/notification
 GET - http://localhost:8080/push/notification/8
 
+## prueba CONSUMER lo que se guardo en h2
+GET - http://localhost:8081/
+
 ##### reference 
 https://www.youtube.com/watch?v=UbbyW5Z1lv8

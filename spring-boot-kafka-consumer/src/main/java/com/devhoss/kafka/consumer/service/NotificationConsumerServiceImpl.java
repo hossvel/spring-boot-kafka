@@ -11,6 +11,7 @@ import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -38,5 +39,10 @@ public class NotificationConsumerServiceImpl implements INotificationConsumerSer
         acknowledgment.acknowledge();
 
 
+    }
+
+    @Override
+    public List<Notificacion> findAll() {
+        return (List<Notificacion>) iNotificationRepository.findAll();
     }
 }
