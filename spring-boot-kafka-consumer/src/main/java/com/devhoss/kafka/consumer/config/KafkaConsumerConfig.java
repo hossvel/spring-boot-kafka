@@ -68,6 +68,8 @@ public class KafkaConsumerConfig {
             Map<String, Object> props = this.propStringObjectMap();
             props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
             props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+            props.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, false);//tener en cuenta paquete del producto y consumidor
+            props.put(JsonDeserializer.VALUE_DEFAULT_TYPE, "com.devhoss.kafka.consumer.dto.NotificationRequest");//
             return new DefaultKafkaConsumerFactory<>(props);
         }
 
